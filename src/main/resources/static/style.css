@@ -1,0 +1,127 @@
+body {
+    max-width: 960px;
+    height: 100%;
+    margin: 30px auto;
+    text-align: center;
+    font-family: Helvetica, 'DejaVu Sans', Arial, sans-serif;
+}
+
+.board {
+    display: flex;
+    flex-flow: row;
+    margin: 3em 0;
+    width: 100%;
+}
+
+.store {
+    flex: 1 0 auto;
+    display: flex;
+    margin: 10px;
+    border: 1px solid blue;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pits {
+    flex: 6;
+    padding: 0 1em;
+}
+
+.row {
+    display: flex;
+}
+
+.row .pit {
+    border: 1px solid;
+}
+
+.row .pit.actionable {
+    cursor: pointer;
+}
+
+.north .pit, .north.store {
+    border-color: blue;
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+.south .pit, .south.store {
+    border-color: green;
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.store .pit {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.row.north {
+    flex-flow: row-reverse;
+}
+
+.row.south {
+    flex-flow: row;
+}
+
+.pit {
+    position: relative;
+    margin: 10px;
+    border-radius: 50%;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.pit:before {
+    content: '';
+    float: left;
+    margin-top: 100%;
+}
+
+.stones {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.stones span {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+}
+
+.player {
+    display: inline;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.active::before, .active::after {
+    line-height: 90%;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    content: "\2B50";  /* star emoji */
+}
+
+.active {
+    font-weight: bolder;
+}
+
+.winner::before, .winner::after {
+    line-height: 90%;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    content: "\1F3C6";  /* trophy emoji */
+}
+
+.winner {
+    font-weight: bolder;
+}
+
+.error {
+    margin-top: 3em;
+    font-size: 2em;
+    color: red;
+}
